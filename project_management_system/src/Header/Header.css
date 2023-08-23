@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #B4FF02;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+}
+
+.logo-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('logo-star.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.login-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('log_in_icon.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.signup-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('sign_up_icon.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.logo {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 10px 0;
+}
+
+.language {
+    background-color: #939393;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    width: 50px;
+    padding: 8px 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.language.active, .language:hover {
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+.header_button-wrapper {
+    width: 235px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app_button {
+    position: relative;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.app_button:before {
+    content: '';
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0.5;
+    filter: blur;
+    background: linear-gradient(to left, transparent 0%, #fff 40%, #fff 60%, transparent 100%);
+    transform: translate(-100%, -25%) rotate(10deg);
+}
+
+.app_button:hover:before {
+    animation: blick 2s;
+}
+  
+@keyframes blick {
+    0% {
+      transform: translate(-100%, -25%) rotate(10deg);
+    }
+    20% {
+      transform: translate(100%, -25%) rotate(10deg);
+    }
+    100% {
+      transform: translate(100%, -25%) rotate(10deg);
+    }
+}
+
+.dark-button-title {
+    color: #ffffff;
+}
+
+.dark-button {
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    color: #ffffff;
+}
+
+.burger {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.burger-line {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #333333;
+    position: absolute;
+    left: 0;
+    transition: .3s all linear;
+}
+
+.burger-line-first {
+    top: 0;
+}
+
+.burger-line-second,  .burger-line-third{
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s all linear;
+}
+
+.burger-line-fourth {
+    bottom: 0;
+}
+
+.burger_active .burger-line-first, .burger_active .burger-line-fourth {
+    opacity: 0;
+}
+
+.burger_active .burger-line-second {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.burger_active .burger-line-third {
+    transform: translateY(-50%) rotate(-45deg);
+}
