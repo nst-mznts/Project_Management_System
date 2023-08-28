@@ -46,12 +46,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-.dark-button:disabled {
+.submit-button:disabled {
     background-color: #939393;
-    cursor: default;
+    pointer-events: none;
 }
 
 .input-wrapper {
@@ -91,3 +91,12 @@ input:not(:placeholder-shown) ~ label {
   transform: translateY(20px) scale(0.8);
 }
 
+.message-invalid {
+  color: #FF0215;
+  font-size: 14px;
+  opacity: 0;
+}
+
+.message-invalid.active {
+  opacity: 1;
+}
