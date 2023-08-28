@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useRef, useState } from "react";
+import Header from '../Header/Header';
 import './Login.css';
 
 export default function Login () {
@@ -44,16 +45,18 @@ export default function Login () {
                 break;
         }
 
-        if (login.length > 0 && password.length > 0) {
+        if (login.length > 4 && password.length > 8) {
             setFormValid(true);
         }
     }
 
     return (
+        <>
+        <Header />
         <main className='login-page'>
             <div className='wrapper'>
                 <section className='login-content'>
-                    <form className='login-form'>
+                    <form className='login-form' action="/main-route">
                         <h2 className='form-title'>Log in</h2>
                         <div className='form-subtitle'>
                             <p className='form-text'>Don't have an account?</p>
@@ -75,5 +78,6 @@ export default function Login () {
                 </section>
             </div>
         </main>
+        </>
     )
 }

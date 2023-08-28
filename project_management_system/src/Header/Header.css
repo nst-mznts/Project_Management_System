@@ -66,9 +66,10 @@ header {
     font-size: 20px;
     font-weight: 600;
     width: 50px;
-    padding: 8px 6px;
+    padding: 12px 6px;
     border: none;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 .language.active, .language:hover {
@@ -77,11 +78,12 @@ header {
 }
 
 .header_button-wrapper {
-    width: 235px;
+    width: 300px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
+    column-gap: 16px;
 }
 
 .app_button {

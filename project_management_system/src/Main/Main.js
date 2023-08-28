@@ -1,9 +1,12 @@
 import './Main.css';
 import main_img from './main_img.svg';
+import Header from '../Header/Header';
 
 export default function Main() {
 
     return (
+        <>
+        <Header />
         <main className='main-page'>
             <div className='wrapper'>
                 <section className='main_content'>
@@ -25,5 +28,6 @@ export default function Main() {
                 </section>
             </div>
         </main>
+        </>
     )
 }

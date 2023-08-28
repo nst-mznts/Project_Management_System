@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
+import Header from '../Header/Header';
 import './Signup.css';
 
 export default function Signup() {
     return (
+        <>
+        <Header />
         <main className='login-page'>
             <div className='wrapper'>
                 <section className='login-content'>
@@ -31,5 +34,6 @@ export default function Signup() {
                 </section>
             </div>
         </main>
+        </>
     )
 }
