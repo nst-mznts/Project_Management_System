@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import buttons from '../data/buttonsList';
 import { useState } from 'react';
 
-export default function NewHeader() {
+export default function NewHeader(props) {
     const [lang, setLang] = useState('EN');
 
     const clickHandler = (event) => {
@@ -24,7 +24,10 @@ export default function NewHeader() {
                     <div className='header_button-wrapper'>
                         <Dropdown clickHandler={clickHandler} lang={lang} />
                         <Button classes={buttons.logout.classes} title={buttons.logout.title} span={buttons.logout.span} link={buttons.logout.link} to={buttons.logout.to} />
-                        <Button classes={buttons.account.classes} title={buttons.account.title} span={buttons.account.span} link={buttons.account.link} to={buttons.account.to} />
+                        <button onClick={props.openSidenav} className='app_button dark-button'>
+                            <span className='user-icon'></span>
+                            Edit profile
+                        </button>
                     </div>
                     <div className="burger" hidden>
                         <span className="burger-line burger-line-first"></span>

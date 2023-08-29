@@ -24,7 +24,7 @@ export default function Login () {
                 } else if (input.length > 0 && input.length < 4) {
                     loginMessage.current.innerText = 'Min length of login - 4 chars';
                     loginMessage.current.classList.add('active');
-                } else if (input.length > 4) {
+                } else if (input.length > 3) {
                     loginMessage.current.innerText = 'Please enter your login';
                     loginMessage.current.classList.remove('active');
                 }
@@ -36,7 +36,7 @@ export default function Login () {
                 } else if (input.length > 0 && input.length < 8) {
                     passwordMessage.current.innerText = 'Min length of password - 8 chars';
                     passwordMessage.current.classList.add('active');
-                } else if (input.length > 8) {
+                } else if (input.length > 7) {
                     passwordMessage.current.innerText = 'Please enter your password';
                     passwordMessage.current.classList.remove('active');
                 }
@@ -45,7 +45,7 @@ export default function Login () {
                 break;
         }
 
-        if (login.length > 4 && password.length > 8) {
+        if (login.length > 3 && password.length > 7) {
             setFormValid(true);
         }
     }

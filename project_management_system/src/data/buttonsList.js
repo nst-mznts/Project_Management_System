@@ -19,13 +19,6 @@ const buttons = {
         "span": "logout-icon",
         "link": "dark-button-title",
         "to": "/"
-    },
-    "account": {
-        "title": "AAA",
-        "classes": "dark-button",
-        "span": "user-icon",
-        "link": "dark-button-title",
-        "to": ""
     }
 }
 

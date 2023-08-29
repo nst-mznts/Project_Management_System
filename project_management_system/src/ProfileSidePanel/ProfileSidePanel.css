@@ -1,0 +1,97 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 80px;
+    right: 0;
+    background-color: #333333;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s;
+}
+
+.sidenav-text {
+    padding: 16px 16px 16px 32px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #FFFFFF;
+    display: flex;
+    column-gap: 8px;
+    transition: 0.3s;
+}
+
+.sidenav-text:hover {
+    background-color: #939393;
+}
+
+.close-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button:hover {
+    background-color: #939393;
+}
+
+.sidenav .closebtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+    font-size: 28px;
+    padding: 18px 32px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav-text {font-size: 18px;}
+}
+
+.bin-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('bin-icon.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.close-icon {
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+    background-image: url('close-icon.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.popup {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 80px;
+    right: 0;
+    background-color: #333333;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s;
+}
+
+.sidenav-buttons-wrapper {
+    padding: 8px 8px 8px 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.light-button {
+    background-color: #FFFFFF;
+    color: #333333;
+}
