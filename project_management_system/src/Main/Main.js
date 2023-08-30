@@ -21,7 +21,7 @@ export default function Main() {
                             <li>Team Collaboration</li>
                             <li>Adaptive layout</li>
                         </ul>
-                        <button className='app_button colored-button'>Get started</button>
+                        <button className='app_button colored-button'><a href='/login'>Get started</a></button>
                         
                     </div>
                     <img src={main_img} className='main_content_image' alt='people' />

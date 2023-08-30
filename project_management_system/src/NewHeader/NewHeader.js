@@ -18,9 +18,6 @@ export default function NewHeader(props) {
             <div className='wrapper'>
                 <nav className='header-navigation'>
                     <Logo />
-                    <div className='header_button_icon'>
-                        <span className='add-icon'></span>
-                    </div>
                     <div className='header_button-wrapper'>
                         <Dropdown clickHandler={clickHandler} lang={lang} />
                         <Button classes={buttons.logout.classes} title={buttons.logout.title} span={buttons.logout.span} link={buttons.logout.link} to={buttons.logout.to} />
