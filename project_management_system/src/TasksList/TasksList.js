@@ -5,7 +5,7 @@ export default function TasksList(props) {
 
     return (
         <>
-        {props.data.map((item, index) => <TaskPreview key={index} title={item.title} id={item.id} handleDeleteNote={props.handleDeleteNote} />)}
+        {props.data.map((item, index) => <TaskPreview key={index} title={item.title} id={item.id} handleDeleteBoard={props.handleDeleteBoard} handleEditTitle={props.handleEditTitle}/>)}
         </>
     )
 }

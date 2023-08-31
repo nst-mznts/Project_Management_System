@@ -10,9 +10,13 @@
     cursor: pointer;
 }
 
-.buttons-list-wrapper {
-    display: flex;
-    column-gap: 8px;
+.tasks-title {
+    border: none;
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: #333333;
+    font-size: 18px;
+    outline: none;  
 }
 
 .tasks_button {
@@ -46,15 +50,6 @@
 .tasks_button-icon {
     z-index: 2;
     position: relative;
-}
-
-.edit-icon {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-image: url('edit-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .delete-icon {

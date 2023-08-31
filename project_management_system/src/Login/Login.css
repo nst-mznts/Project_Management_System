@@ -1,5 +1,5 @@
 .login-page {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 .login-content {
@@ -61,7 +61,7 @@
   margin: 0 auto;
 }
 
-input[type=text], input[type=password] {
+.form-input {
   border: none;
   padding: 10px;
   margin: 20px 0;
@@ -79,13 +79,13 @@ input[type=text], input[type=password] {
   transition: all 0.3s;
 }
 
-input:focus,
-input:not(:placeholder-shown) {
+.form-input:focus,
+.form-input:not(:placeholder-shown) {
   border-bottom: 2px solid #B4FF02;
 }
 
-input:focus ~ label,
-input:not(:placeholder-shown) ~ label {
+.form-input:focus ~ label,
+.form-input:not(:placeholder-shown) ~ label {
   padding: 0;
   color: #333333;
   transform: translateY(20px) scale(0.8);

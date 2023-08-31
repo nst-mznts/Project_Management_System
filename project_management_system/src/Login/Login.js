@@ -64,12 +64,12 @@ export default function Login () {
                         </div>
                         <div className='input-wrapper'>
                             <div><p className="message-invalid" ref={loginMessage}>Please enter your login</p></div>
-                            <input required id="login" name='login' defaultValue={login} type="text" placeholder=" " onChange={handleUserInput} />
+                            <input required id="login" name='login' defaultValue={login} className="form-input" type="text" placeholder=" " onChange={handleUserInput} />
                             <label className='input-label' htmlFor="login">Login</label>
                         </div>
                         <div className='input-wrapper'>
                             <div><p className="message-invalid" ref={passwordMessage}>Please enter your password</p></div>
-                            <input required id="password" name='password' defaultValue={password} type="password" placeholder=" " onChange={handleUserInput} />
+                            <input required id="password" name='password' defaultValue={password} className="form-input" type="password" placeholder=" " onChange={handleUserInput} />
                             <label className='input-label' htmlFor="password">Password</label>
                         </div>
                         

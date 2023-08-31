@@ -71,27 +71,9 @@
     background-size: 100%;
 }
 
-.popup {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 2;
-    top: 80px;
-    right: 0;
-    background-color: #333333;
-    overflow-x: hidden;
-    padding-top: 20px;
-    transition: 0.5s;
-}
-
 .sidenav-buttons-wrapper {
     padding: 8px 8px 8px 32px;
     display: flex;
     flex-direction: column;
     row-gap: 8px;
-}
-
-.light-button {
-    background-color: #FFFFFF;
-    color: #333333;
 }

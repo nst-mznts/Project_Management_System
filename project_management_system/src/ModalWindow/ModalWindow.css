@@ -1,0 +1,28 @@
+.popup {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 80px;
+    right: 0;
+    background-color: #333333;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: all 0.5s ease;
+}
+
+.popup-text {
+    padding: 16px 16px 16px 32px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    column-gap: 8px;
+    transition: 0.3s;
+}
+
+.light-button {
+    background-color: #FFFFFF;
+    color: #333333;
+}
