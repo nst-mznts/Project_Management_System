@@ -1,6 +1,8 @@
+@import '../constants.scss';
+
 ::-webkit-scrollbar {
   width: 16px;
-  background: #FFFFFF;
+  background: $color-light;
 }
 
 ::-webkit-scrollbar-track {
@@ -8,6 +10,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333333;
+  background-color: $color-dark;
   border-radius: 15px;
 }

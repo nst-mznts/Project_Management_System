@@ -1,11 +1,14 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
 .language, .language-switch {
-    display: flex;
+    @include flex(row);
     align-items: center;
     justify-content: center;
-    background-color: #FFFFFF;
-    color: #333333;
-    font-size: 20px;
-    font-weight: 600;
+    background-color: $color-light;
+    color: $color-dark;
+    @include font(normal, 600, 2rem);
     width: 100%;
     height: 50px;
     padding: 12px 6px;
@@ -14,13 +17,13 @@
 }
 
 .language-switch {
-    border-radius:  8px;
+    @extend %border-radius;
     width: 50px;
 }
 
-.language.active, .language:hover {
-    background-color: #939393;
-    color: #FFFFFF;
+.language:hover {
+    background-color: $color-additional;
+    color: $color-light;
 }
 
 .dropdown-content {
@@ -28,12 +31,14 @@
     height: 100px;
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    z-index: 1;
+    background-color: $color-light;
+    @extend %shadow;
+    z-index: 10;
     transition: 0.5s;
 }
 
+/*
 .dropdown:hover .dropdown-content {
     display: block;
 }
+*/

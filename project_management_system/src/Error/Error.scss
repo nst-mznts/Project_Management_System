@@ -1,0 +1,39 @@
+.error-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 30px;
+    padding: 40px 0;
+}
+
+.error-404 {
+    display: flex;
+}
+
+.error-icons-wrapper {
+    width: 56px;
+    height: 245px;
+    display: flex;
+}
+
+.right {
+    align-items: end;
+}
+
+.left {
+    align-items: start;
+}
+
+.error {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 190px;
+    font-weight: 600;
+    color: #DAFD4E;
+}
+
+.small {
+    width: 15px;
+}

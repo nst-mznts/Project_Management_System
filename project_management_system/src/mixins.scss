@@ -1,0 +1,36 @@
+@mixin font ($style, $weight, $size) {
+    font-family: 'Poppins', sans-serif;
+    font-style: $style;
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin icon ($width, $height) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@mixin flex ($direction) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+}
+
+@mixin media-laptop {
+    @media (max-width: $content-width) { @content;};
+}
+
+@mixin media-tablet {
+    @media (max-width: $tablet-width) { @content;};
+}
+
+@mixin media-mobile {
+    @media (max-width: $mobile-big-width) { @content;};
+}
+
+@mixin media-mobilesmall {
+    @media (max-width: $mobile-small-width) { @content;};
+}

@@ -1,0 +1,20 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+
+footer {
+    background-color: $color-secondary;
+    height: 80px;
+}
+
+.rs_school-logo {
+    width: 100px;
+    @include media-mobile {
+        width: 80px;
+    }
+}
+
+.git-icon {
+    @include icon(20px, 20px);
+    background-image: url('git-icon.svg');
+    margin-right: 10px;
+}

@@ -1,0 +1,79 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
+.main-page {
+    background-image: linear-gradient(180deg, $color-primary, $color-secondary);
+}
+
+.main_content {
+    width: 100%;
+    @include flex(row);
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    @include media-laptop {
+        @include flex(column);
+        justify-content: center;
+        row-gap: 40px;
+    }
+}
+
+.main_content_image {
+    width: 550px;
+    @include media-laptop {
+        order: 1;
+    };
+    @include media-mobile {
+        width: 250px;
+    }
+}
+
+.main_features {
+    background-color: $color-light;
+    width: 550px;
+    padding: 20px;
+    border: 4px solid $color-dark;
+    box-shadow: 10px 10px 0 0;
+    @include media-laptop {
+        order: 2;
+    };
+    @include media-mobile {
+        width: 250px;
+    }
+}
+
+.main_paragraph {
+    line-height: 2rem;
+    margin-bottom: 20px;
+}
+
+.colored-button {
+    background-color: $color-primary;
+    width: 160px;
+    color: $color-dark;
+    @include flex(row);
+    justify-content: center;
+    @include media-mobile {
+        width: 200px;
+    }
+}
+
+.features-list {
+    padding-left: 0;
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.features-list-item {
+    padding-left: 2rem;
+    margin-bottom: 16px;
+    background-image: url("star.svg");
+    background-position: 0 0;
+    background-size: 1.6rem 1.6rem;
+    background-repeat: no-repeat;
+    @include font(normal, 400, 1.6rem);
+    @include media-mobile {
+        @include font(normal, 400, 1.4rem);
+    }
+}

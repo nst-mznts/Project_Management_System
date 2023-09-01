@@ -1,4 +1,4 @@
-import './ModalWindow.css';
+import './ModalWindow.scss';
 
 export default function ModalWindow(props) {
 

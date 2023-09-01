@@ -1,0 +1,97 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
+.login-page {
+	background-color: $color-light;
+}
+
+.login-content {
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.login-form {
+	@include flex(column);
+    align-items: center;
+    justify-content: space-between;
+	@extend %shadow;
+	@extend %border-radius;
+    padding: 30px;
+    background-color: $color-light;
+}
+
+.form-subtitle {
+	@include flex(row);
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 8px;
+	margin-bottom: 10px;
+}
+
+.form-link {
+	color: $color-primary;
+	border-bottom: 2px solid $color-primary;
+	@include font(normal, 400, 1.6rem);
+	@include media-mobile {
+		@include font(normal, 400, 1.4rem);
+	}
+}
+
+.submit-button {
+	width: 20rem;
+	@include flex(row);
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.submit-button:disabled {
+    background-color: $color-additional;
+    pointer-events: none;
+}
+
+.input-wrapper {
+	@include flex(row);
+	flex-direction: column-reverse;
+	width: 320px;
+	margin: 0 auto;
+}
+
+.form-input {
+	border: none;
+	padding: 10px;
+	margin: 20px 0;
+	@include font(normal, 400, 1.6rem);
+	border-bottom: 1px solid $color-additional;
+	outline: none;
+	&:focus, &:not(:placeholder-shown) {
+		border-bottom: 2px solid $color-primary;
+  	};
+	&:focus ~ label, &:not(:placeholder-shown) ~ label {
+		padding: 0;
+		color: $color-dark;
+		transform: translateY(20px) scale(0.8);
+	}
+}
+
+.input-label {
+	@include font(normal, 400, 1.6rem);
+	padding-left: 10px;
+	color: $color-additional;
+	transform: translateY(30px);
+	transform-origin: left top;
+	cursor: text;
+	transition: all 0.3s ease;
+}
+
+.message-invalid {
+	color: $color-error;
+	@include font(normal, 400, 1.4rem);
+	opacity: 0;
+	&.active {
+		opacity: 1;
+	}
+}

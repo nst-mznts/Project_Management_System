@@ -1,0 +1,76 @@
+@import "normalize.css/normalize.css";
+@import './mixins.scss';
+@import './constants.scss';
+
+html {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+body {
+  @include font(normal, 400, 1.6rem);
+}
+
+.wrapper {
+  max-width: $content-width;
+  margin: 0 auto;
+  padding: 0 10px;
+  @include media-tablet {
+    max-width: $tablet-width;
+  };
+  @include media-mobile {
+    max-width: $mobile-big-width;
+  };
+  @include media-mobilesmall {
+    max-width: $mobile-small-width;
+  };
+}
+
+.header-h2 {
+  margin-bottom: 20px;
+  @include font(normal, 600, 2.4rem);
+  @include media-mobile {
+      @include font(normal, 600, 2rem);
+  }
+}
+
+.paragraph {
+  @include font(normal, 400, 1.6rem);
+  @include media-mobile {
+      @include font(normal, 400, 1.4rem);
+  }
+}
+
+.link {
+  color: $color-dark;
+  @include flex(row);
+  align-items: center;
+  @include font(normal, 400, 1.6rem);
+  @include media-mobile {
+      @include font(normal, 400, 1.4rem);
+  }
+}
+
+a {
+  text-decoration: none;
+}

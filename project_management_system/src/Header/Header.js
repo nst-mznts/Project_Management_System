@@ -1,17 +1,23 @@
-import './Header.css';
+import './Header.scss';
 import Logo from '../Logo/Logo';
 import Dropdown from '../Dropdown/Dropdown';
-import Button from '../Button/Button';
-import buttons from '../data/buttonsList';
-import { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import { useRef, useState } from 'react';
 
 export default function Header() {
     const [lang, setLang] = useState('EN');
+    const dropdown = useRef();
 
     const clickHandler = (event) => {
         event.preventDefault();
+        dropdown.current.style.display = 'block';
+    }
+
+    const languageHandler = (event) => {
+        event.preventDefault();
         let id = event.target.id;
         setLang(id);
+        dropdown.current.style.display = 'none';
     }
 
     return (
@@ -20,9 +26,15 @@ export default function Header() {
                 <nav className='header-navigation'>
                     <Logo />
                     <div className='header_button-wrapper'>
-                        <Dropdown clickHandler={clickHandler} lang={lang} />
-                        <Button classes={buttons.login.classes} title={buttons.login.title} span={buttons.login.span} link={buttons.login.link} to={buttons.login.to} />
-                        <Button classes={buttons.signup.classes} title={buttons.signup.title} span={buttons.signup.span} link={buttons.signup.link} to={buttons.signup.to} />
+                        <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
+                        <NavLink className='app_button dark-button' to='/login'>
+                            <span className='login-icon'></span>
+                            Log in
+                        </NavLink>
+                        <NavLink className='app_button dark-button' to='/signup'>
+                            <span className='signup-icon'></span>
+                            Sign up
+                        </NavLink>
                     </div>
                 </nav>
             </div>

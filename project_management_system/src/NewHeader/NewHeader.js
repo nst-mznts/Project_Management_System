@@ -1,4 +1,4 @@
-import './NewHeader.css';
+import './NewHeader.scss';
 import Logo from '../Logo/Logo';
 import Dropdown from '../Dropdown/Dropdown';
 import Button from '../Button/Button';

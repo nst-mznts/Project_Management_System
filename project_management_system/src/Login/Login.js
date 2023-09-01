@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useRef, useState } from "react";
 import Header from '../Header/Header';
-import './Login.css';
+import './Login.scss';
 
 export default function Login () {
     let loginMessage = useRef();
@@ -14,8 +14,7 @@ export default function Login () {
 
     const handleUserInput = (e) => {
         const input = e.target.value;
-        
-        
+
         switch(e.target.id){
             case 'login':
                 setLogin(input);
@@ -57,9 +56,9 @@ export default function Login () {
             <div className='wrapper'>
                 <section className='login-content'>
                     <form className='login-form' action="/main-route">
-                        <h2 className='form-title'>Log in</h2>
+                        <h2 className='header-h2'>Log in</h2>
                         <div className='form-subtitle'>
-                            <p className='form-text'>Don't have an account?</p>
+                            <p className='paragraph'>Don't have an account?</p>
                             <NavLink to='/signup' className='form-link'>Sign up</NavLink>
                         </div>
                         <div className='input-wrapper'>
@@ -72,7 +71,6 @@ export default function Login () {
                             <input required id="password" name='password' defaultValue={password} className="form-input" type="password" placeholder=" " onChange={handleUserInput} />
                             <label className='input-label' htmlFor="password">Password</label>
                         </div>
-                        
                         <button disabled={!formValid} type="submit" className='app_button dark-button submit-button'>Log in</button>
                     </form>
                 </section>

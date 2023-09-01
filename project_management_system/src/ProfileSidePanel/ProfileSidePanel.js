@@ -1,4 +1,4 @@
-import './ProfileSidePanel.css';
+import './ProfileSidePanel.scss';
 
 export default function ProfileSidePanel(props) {
 
@@ -9,11 +9,11 @@ export default function ProfileSidePanel(props) {
                 Hi, User
                 <div className='close-button'><span className='close-icon'></span></div>
             </div>
-            <div className='sidenav-text'>
+            <div className='sidenav-text sidenav-link'>
                 <span className='logout-icon'></span>
                 Log out
             </div>
-            <div onClick={props.openPopUp} className='sidenav-text'>
+            <div onClick={props.openPopUp} className='sidenav-text sidenav-link'>
                 <span className='bin-icon'></span>
                 Delete profile
             </div>
