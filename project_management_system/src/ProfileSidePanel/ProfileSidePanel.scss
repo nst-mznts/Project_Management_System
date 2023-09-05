@@ -1,3 +1,7 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -5,75 +9,56 @@
     z-index: 5;
     top: 80px;
     right: 0;
-    background-color: #333333;
+    background-color: $color-dark;
     overflow-x: hidden;
     padding-top: 20px;
     transition: all 0.5s ease;
+    @include media-mobile {
+		padding-top: 15px;
+	}
 }
 
 .sidenav-text {
     padding: 16px 16px 16px 32px;
     cursor: pointer;
-    font-size: 18px;
-    color: #FFFFFF;
-    display: flex;
+    @include font(normal, 400, 1.8rem);
+    color: $color-light;
+    @include flex(row);
     column-gap: 8px;
     transition: 0.3s;
-}
-
-.sidenav-text:hover {
-    background-color: #939393;
+    &:hover {
+        background-color: $color-additional;
+    }
 }
 
 .close-button {
+    @extend %rounded-button;
     width: 45px;
     height: 45px;
-    border-radius: 50%;
     background-color: transparent;
-    display: flex;
+    @include flex(row);
     align-items: center;
     justify-content: center;
-}
-
-.close-button:hover {
-    background-color: #939393;
+    &:hover {
+        background-color: $color-additional;
+    }
 }
 
 .sidenav .closebtn {
-    display: flex;
+    @include flex(row);
     align-items: center;
     justify-content: space-between;
-    color: #FFFFFF;
-    font-size: 28px;
+    color: $color-light;
+    @include font(normal, 400, 2.8rem);
     padding: 18px 32px;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav-text {font-size: 18px;}
-}
-
 .bin-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    @include icon(20px, 20px);
     background-image: url('bin-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .close-icon {
-    display: inline-block;
-    width: 50%;
-    height: 50%;
+    @include icon(50%, 50%);
     background-image: url('close-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.sidenav-buttons-wrapper {
-    padding: 8px 8px 8px 32px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
 }

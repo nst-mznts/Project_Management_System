@@ -1,36 +1,40 @@
 import './NewHeader.scss';
 import Logo from '../Logo/Logo';
 import Dropdown from '../Dropdown/Dropdown';
-import Button from '../Button/Button';
-import buttons from '../data/buttonsList';
-import { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import { useRef, useState } from 'react';
 
 export default function NewHeader(props) {
     const [lang, setLang] = useState('EN');
+    const dropdown = useRef();
 
     const clickHandler = (event) => {
         event.preventDefault();
+        dropdown.current.style.display = 'block';
+    }
+
+    const languageHandler = (event) => {
+        event.preventDefault();
         let id = event.target.id;
         setLang(id);
+        dropdown.current.style.display = 'none';
     }
+
     return (
         <header>
             <div className='wrapper'>
                 <nav className='header-navigation'>
                     <Logo />
                     <div className='header_button-wrapper'>
-                        <Dropdown clickHandler={clickHandler} lang={lang} />
-                        <Button classes={buttons.logout.classes} title={buttons.logout.title} span={buttons.logout.span} link={buttons.logout.link} to={buttons.logout.to} />
+                    <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
+                        <NavLink className='app_button dark-button' to='/'>
+                            <span className='logout-icon'></span>
+                            <span className='dark-button-title'>Log out</span>
+                        </NavLink>
                         <button onClick={props.openSidenav} className='app_button dark-button'>
                             <span className='user-icon'></span>
-                            Edit profile
+                            <span className='dark-button-title'>Edit profile</span>
                         </button>
-                    </div>
-                    <div className="burger" hidden>
-                        <span className="burger-line burger-line-first"></span>
-                        <span className="burger-line burger-line-second"></span>
-                        <span className="burger-line burger-line-third"></span>
-                        <span className="burger-line burger-line-fourth"></span>
                     </div>
                 </nav>
             </div>

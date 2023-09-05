@@ -17,7 +17,7 @@
     font-family: 'Shadows Into Light', cursive;
     color: $color-dark;
     margin: 0;
-    @include media-mobile {
+    @include media-tablet {
         display: none;
-    }
+    };
 }

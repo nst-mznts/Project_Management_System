@@ -50,12 +50,12 @@
 
 .colored-button {
     background-color: $color-primary;
-    width: 160px;
+    width: 16rem;
     color: $color-dark;
     @include flex(row);
     justify-content: center;
     @include media-mobile {
-        width: 200px;
+        width: 20rem;
     }
 }
 

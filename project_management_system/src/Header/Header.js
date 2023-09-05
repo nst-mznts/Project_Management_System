@@ -29,11 +29,11 @@ export default function Header() {
                         <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
                         <NavLink className='app_button dark-button' to='/login'>
                             <span className='login-icon'></span>
-                            Log in
+                            <span className='dark-button-title'>Log in</span>
                         </NavLink>
                         <NavLink className='app_button dark-button' to='/signup'>
                             <span className='signup-icon'></span>
-                            Sign up
+                            <span className='dark-button-title'>Sign up</span>
                         </NavLink>
                     </div>
                 </nav>

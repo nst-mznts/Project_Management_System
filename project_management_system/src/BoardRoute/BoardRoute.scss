@@ -1,24 +1,20 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
 .route-button-wrapper {
     width: 100%;
-    display: flex;
+    @include flex(row);
     align-items: center;
     justify-content: space-between;
 }
 
 .back-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    @include icon(20px, 20px);
     background-image: url('back-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .add-column-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    @include icon(20px, 20px);
     background-image: url('add-column-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }

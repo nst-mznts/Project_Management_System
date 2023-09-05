@@ -13,23 +13,20 @@ export default function MainRoute() {
     const profileSidenav = useRef();
     const popup = useRef();
 
-    const openPopUp = (event) => {
-        let elem = event.target;
-        popup.current.style.width = "260px";
-        mainContent.current.style.width = "70%";
-        if (elem.classList.contains('delete-icon')) {
-            console.log('delete-icon');
 
-        } else if (elem.classList.contains('sidenav-link')) {
-            console.log('sidenav-link');
+    const openPopUp = () => {
 
-        }
+        popup.current.classList.add('active');
+
+        //mainContent.current.style.width = "70%";
         
     }
 
     const closePopUp = () => {
-        popup.current.style.width = "0";
-        mainContent.current.style.width = "100%";
+        //popup.current.style.width = "0";
+        popup.current.classList.remove('active');
+        //popup.current.style.width = "0";
+        //mainContent.current.style.width = "100%";
     }
 
     const closeSidenav = (e) => {
@@ -56,7 +53,7 @@ export default function MainRoute() {
     }
 
     const deletionHandler = () => {
-
+        console.log('delete');
     }
 
     const editBoardTitleHandler = (event) => {
@@ -82,11 +79,11 @@ export default function MainRoute() {
                         New board
                     </button>
                     <div className='boards-wrapper' ref={mainContent}>
-                        <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} />
+                        <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp}/>
                     </div>
                 </section>
+                <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deletionHandler}/>
                 <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={openPopUp}/>
-                <ModalWindow popup={popup} closePopUp={closePopUp} delete={deletionHandler}/>
             </div>
         </main>
         </>

@@ -1,17 +1,11 @@
+@import '../mixins.scss';
+
 .user-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    @include icon(20px, 20px);
     background-image: url('user_icon2.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .logout-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    @include icon(20px, 20px);
     background-image: url('log_out_icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }

@@ -1,10 +1,14 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
 .tasks-list-wrapper {
     width: 350px;
-    display: flex;
+    @include flex(row);
     align-items: center;
     justify-content: space-between;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    background-color: #FFFFFF;
+    @extend %shadow;
+    background-color: $color-light;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
@@ -13,38 +17,36 @@
 .tasks-title {
     border: none;
     padding: 10px;
-    background-color: #FFFFFF;
-    color: #333333;
-    font-size: 18px;
+    background-color: $color-light;
+    color: $color-dark;
+    @include font(normal, 400, 1.8rem);
     outline: none;  
 }
 
 .tasks_button {
     position: relative;
-    border-radius: 50%;
+    @extend %rounded-button;
     padding: 10px;
     width: 45px;
     height: 45px;
-    border: 2px solid #B4FF02;
-    background-color: #FFFFFF;
+    border: 2px solid $color-primary;
+    background-color: $color-light;
     cursor: pointer;
-}
-
-.tasks_button:after{
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    border-radius: 50%;
-    background-image: linear-gradient(180deg, #B4FF02, #DAFD4E);
-    transition: all .5s;
-}
-  
-.tasks_button:hover:after{
-    opacity: 1;
+    &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        border-radius: 50%;
+        background-image: linear-gradient(180deg, $color-primary, $color-secondary);
+        transition: all .5s;
+    };
+    &:hover:after{
+        opacity: 1
+    };
 }
 
 .tasks_button-icon {
@@ -53,10 +55,6 @@
 }
 
 .delete-icon {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
+    @include icon(100%, 100%);
     background-image: url('dark-bin-icon.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
 }

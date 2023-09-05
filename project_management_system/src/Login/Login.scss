@@ -21,6 +21,9 @@
 	@extend %border-radius;
     padding: 30px;
     background-color: $color-light;
+	@include media-mobile {
+		padding: 20px;
+	}
 }
 
 .form-subtitle {
@@ -46,11 +49,10 @@
 	align-items: center;
 	justify-content: center;
 	margin-top: 30px;
-}
-
-.submit-button:disabled {
-    background-color: $color-additional;
-    pointer-events: none;
+	&:disabled {
+		background-color: $color-additional;
+		pointer-events: none;
+	}
 }
 
 .input-wrapper {
@@ -58,6 +60,9 @@
 	flex-direction: column-reverse;
 	width: 320px;
 	margin: 0 auto;
+	@include media-mobile {
+		width: 260px;
+	}
 }
 
 .form-input {
@@ -67,6 +72,9 @@
 	@include font(normal, 400, 1.6rem);
 	border-bottom: 1px solid $color-additional;
 	outline: none;
+	@include media-mobile {
+		@include font(normal, 400, 1.4rem);
+	};
 	&:focus, &:not(:placeholder-shown) {
 		border-bottom: 2px solid $color-primary;
   	};
@@ -74,7 +82,7 @@
 		padding: 0;
 		color: $color-dark;
 		transform: translateY(20px) scale(0.8);
-	}
+	};
 }
 
 .input-label {
@@ -85,6 +93,9 @@
 	transform-origin: left top;
 	cursor: text;
 	transition: all 0.3s ease;
+	@include media-mobile {
+		@include font(normal, 400, 1.4rem);
+	};
 }
 
 .message-invalid {
@@ -93,5 +104,8 @@
 	opacity: 0;
 	&.active {
 		opacity: 1;
-	}
+	};
+	@include media-mobile {
+		@include font(normal, 400, 1.2rem);
+	};
 }

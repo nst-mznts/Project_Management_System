@@ -50,38 +50,36 @@ export default function Signup() {
     }
     return (
         <>
-        <Header />
-        <main className='login-page'>
-            <div className='wrapper'>
-                <section className='login-content'>
-                    <form className='login-form'>
-                        <h2 className='header-h2'>Registration</h2>
-                        <div className='form-subtitle'>
-                            <p className='paragraph'>Already have an account? </p>
-                            <NavLink to='/login' className='form-link'>Log in</NavLink>
-                        </div>
-
-                        <div className='input-wrapper'>
-                            <div><p className="message-invalid" ref={loginMessage}>Please enter your name</p></div>
-                            <input required id="name" type="text" placeholder=" " className="form-input" />
-                            <label className='input-label' htmlFor="name">Name</label>
-                        </div>
-                        <div className='input-wrapper'>
-                            <div><p className="message-invalid" ref={loginMessage}>Please enter your login</p></div>
-                            <input required id="login" name='login' defaultValue={login} className="form-input" type="text" placeholder=" " onChange={handleUserInput} />
-                            <label className='input-label' htmlFor="login">Login</label>
-                        </div>
-                        <div className='input-wrapper'>
-                            <div><p className="message-invalid" ref={passwordMessage}>Please enter your password</p></div>
-                            <input required id="password" name='password' defaultValue={password} className="form-input" type="password" placeholder=" " onChange={handleUserInput} />
-                            <label className='input-label' htmlFor="password">Password</label>
-                        </div>
-                        
-                        <button disabled={!formValid} type="submit" className='app_button dark-button submit-button'>Sign up</button>
-                    </form>
-                </section>
-            </div>
-        </main>
+            <Header />
+            <main className='login-page'>
+                <div className='wrapper'>
+                    <section className='login-content'>
+                        <form className='login-form' action="/main-route">
+                            <h2 className='header-h2'>Log in</h2>
+                            <div className='form-subtitle'>
+                                <p className='paragraph'>Don't have an account?</p>
+                                <NavLink to='/signup' className='form-link'>Sign up</NavLink>
+                            </div>
+                            <div className='input-wrapper'>
+                                <div><p className="message-invalid" >Please enter your name</p></div>
+                                <input required id="name" name='name' className="form-input" type="text" placeholder=" " />
+                                <label className='input-label' htmlFor="name">Name</label>
+                            </div>
+                            <div className='input-wrapper'>
+                                <div><p className="message-invalid" ref={loginMessage}>Please enter your login</p></div>
+                                <input required id="login" name='login' defaultValue={login} className="form-input" type="text" placeholder=" " onChange={handleUserInput} />
+                                <label className='input-label' htmlFor="login">Login</label>
+                            </div>
+                            <div className='input-wrapper'>
+                                <div><p className="message-invalid" ref={passwordMessage}>Please enter your password</p></div>
+                                <input required id="password" name='password' defaultValue={password} className="form-input" type="password" placeholder=" " onChange={handleUserInput} />
+                                <label className='input-label' htmlFor="password">Password</label>
+                            </div>
+                            <button disabled={!formValid} type="submit" className='app_button dark-button submit-button'>Log in</button>
+                        </form>
+                    </section>
+                </div>
+            </main>
         </>
     )
 }

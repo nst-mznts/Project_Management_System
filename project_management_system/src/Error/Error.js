@@ -1,4 +1,5 @@
 import './Error.scss';
+import { NavLink } from "react-router-dom";
 import NewHeader from '../NewHeader/NewHeader';
 
 export default function Error() {
@@ -20,10 +21,11 @@ export default function Error() {
                                 <span className='logo-icon small'></span>
                                 <span className='logo-icon'></span>
                             </div>
-                            
                         </section>
-                        
-                        <button className='app_button dark-button'><a href='/main-route' className='dark-button-title'>Back</a></button>
+                        <NavLink className='app_button dark-button' to='/main-route'>
+                            <span className='back-icon'></span>
+                            <span className='dark-button-title'>Back</span>
+                        </NavLink>
                     </section>
                 </div>
             </main>

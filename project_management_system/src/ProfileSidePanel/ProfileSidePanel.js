@@ -5,7 +5,7 @@ export default function ProfileSidePanel(props) {
     return (
         <>
         <div ref={props.profileSidenav} className="sidenav">
-            <div href=" " className="closebtn" onClick={props.closeSidenav}>
+            <div className="closebtn" onClick={props.closeSidenav}>
                 Hi, User
                 <div className='close-button'><span className='close-icon'></span></div>
             </div>
