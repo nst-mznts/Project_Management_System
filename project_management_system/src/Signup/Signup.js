@@ -50,15 +50,15 @@ export default function Signup() {
     }
     return (
         <>
-            <Header />
+            <Header btnClass={'hidden'} startBtnClass={''}/>
             <main className='login-page'>
                 <div className='wrapper'>
                     <section className='login-content'>
                         <form className='login-form' action="/main-route">
-                            <h2 className='header-h2'>Log in</h2>
+                            <h2 className='header-h2'>Registration</h2>
                             <div className='form-subtitle'>
-                                <p className='paragraph'>Don't have an account?</p>
-                                <NavLink to='/signup' className='form-link'>Sign up</NavLink>
+                                <p className='paragraph'>Already have an account?</p>
+                                <NavLink to='/login' className='form-link'>Log in</NavLink>
                             </div>
                             <div className='input-wrapper'>
                                 <div><p className="message-invalid" >Please enter your name</p></div>

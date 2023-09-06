@@ -17,7 +17,7 @@ function App() {
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/signup' element={<Signup />} />
           <Route exact path='/main-route' element={<MainRoute />} />
-          <Route exact path='/main-route/:boardURL' element={<BoardRoute />} />
+          <Route exact path='/board-route' element={<BoardRoute />} />
           <Route path='*' element={<Error />} />
         </Routes>
       </Router>

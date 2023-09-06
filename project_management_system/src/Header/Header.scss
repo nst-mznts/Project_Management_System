@@ -88,3 +88,17 @@ header {
       transform: translate(100%, -25%) rotate(10deg);
     }
 }
+
+.user-icon {
+    @include icon(20px, 20px);
+    background-image: url('user_icon.svg');
+}
+
+.logout-icon {
+    @include icon(20px, 20px);
+    background-image: url('log_out_icon.svg');
+}
+
+.hidden {
+    display: none;
+}

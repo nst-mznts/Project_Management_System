@@ -4,7 +4,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import { NavLink } from "react-router-dom";
 import { useRef, useState } from 'react';
 
-export default function Header() {
+export default function Header(props) {
     const [lang, setLang] = useState('EN');
     const dropdown = useRef();
 
@@ -25,7 +25,7 @@ export default function Header() {
             <div className='wrapper'>
                 <nav className='header-navigation'>
                     <Logo />
-                    <div className='header_button-wrapper'>
+                    <div className={`header_button-wrapper ${props.startBtnClass}`}>
                         <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
                         <NavLink className='app_button dark-button' to='/login'>
                             <span className='login-icon'></span>
@@ -35,6 +35,18 @@ export default function Header() {
                             <span className='signup-icon'></span>
                             <span className='dark-button-title'>Sign up</span>
                         </NavLink>
+                    </div>
+
+                    <div className={`header_button-wrapper ${props.btnClass}`}>
+                        <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
+                        <NavLink className='app_button dark-button' to='/'>
+                            <span className='logout-icon'></span>
+                            <span className='dark-button-title'>Log out</span>
+                        </NavLink>
+                        <button onClick={props.openSidenav} className='app_button dark-button'>
+                            <span className='user-icon'></span>
+                            <span className='dark-button-title'>Edit profile</span>
+                        </button>
                     </div>
                 </nav>
             </div>

@@ -1,12 +1,12 @@
 import './Error.scss';
 import { NavLink } from "react-router-dom";
-import NewHeader from '../NewHeader/NewHeader';
+import Header from '../Header/Header';
 
 export default function Error() {
 
     return (
         <>
-            <NewHeader />
+            <Header btnClass={''} startBtnClass={'hidden'}/>
             <main className='error-page' >
                 <div className='wrapper' >
                     <section className='error-content' >

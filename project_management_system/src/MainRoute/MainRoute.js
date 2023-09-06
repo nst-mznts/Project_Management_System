@@ -1,8 +1,9 @@
 import './MainRoute.scss';
-import NewHeader from '../NewHeader/NewHeader';
+import Header from '../Header/Header';
 import ProfileSidePanel from '../ProfileSidePanel/ProfileSidePanel';
 import TasksList from '../TasksList/TasksList';
 import ModalWindow from '../ModalWindow/ModalWindow';
+//import BoardRoute from '../BoardRoute/BoardRoute';
 import tasks from '../data/tasksList';
 import { nanoid } from 'nanoid';
 import { useRef, useState } from 'react';
@@ -14,19 +15,16 @@ export default function MainRoute() {
     const popup = useRef();
 
 
+    const openTask =() => {
+        window.location = '/board-route';
+    }
+
     const openPopUp = () => {
-
         popup.current.classList.add('active');
-
-        //mainContent.current.style.width = "70%";
-        
     }
 
     const closePopUp = () => {
-        //popup.current.style.width = "0";
         popup.current.classList.remove('active');
-        //popup.current.style.width = "0";
-        //mainContent.current.style.width = "100%";
     }
 
     const closeSidenav = (e) => {
@@ -42,7 +40,7 @@ export default function MainRoute() {
     }
 
     const BoardCreationHandler = () => {
-        const newTask = {"id": nanoid(), "title": "New board"};
+        const newTask = {"id": nanoid(), "title": "New board", 'tasks': []};
         const newBoard = [...board, newTask];
         setBoard(newBoard);
     }
@@ -70,7 +68,7 @@ export default function MainRoute() {
 
     return (
         <>
-        <NewHeader openSidenav={openSidenav} />
+        <Header openSidenav={openSidenav} btnClass={''} startBtnClass={'hidden'}/>
         <main className='main-route-page' >
             <div className='wrapper' >
                 <section className='main-route-content' >
@@ -79,7 +77,7 @@ export default function MainRoute() {
                         New board
                     </button>
                     <div className='boards-wrapper' ref={mainContent}>
-                        <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp}/>
+                        <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} openTask={openTask}/>
                     </div>
                 </section>
                 <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deletionHandler}/>

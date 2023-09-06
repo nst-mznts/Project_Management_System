@@ -51,7 +51,7 @@ export default function Login () {
 
     return (
         <>
-        <Header />
+        <Header btnClass={'hidden'} startBtnClass={''}/>
         <main className='login-page'>
             <div className='wrapper'>
                 <section className='login-content'>

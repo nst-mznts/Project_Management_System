@@ -6,7 +6,7 @@ export default function Main() {
 
     return (
         <>
-        <Header />
+        <Header btnClass={'hidden'} startBtnClass={''}/>
         <main className='main-page'>
             <div className='wrapper'>
                 <section className='main_content'>
