@@ -18,3 +18,7 @@
     @include icon(20px, 20px);
     background-image: url('add-column-icon.svg');
 }
+
+.hidden {
+    display: none;
+}

@@ -3,20 +3,32 @@ import Header from '../Header/Header';
 import ProfileSidePanel from '../ProfileSidePanel/ProfileSidePanel';
 import TasksList from '../TasksList/TasksList';
 import ModalWindow from '../ModalWindow/ModalWindow';
-//import BoardRoute from '../BoardRoute/BoardRoute';
+import BoardRoute from '../BoardRoute/BoardRoute';
 import tasks from '../data/tasksList';
 import { nanoid } from 'nanoid';
 import { useRef, useState } from 'react';
 
 export default function MainRoute() {
     const [board, setBoard] = useState(tasks);
+    const [tasksClass, setTasksClass] = useState('hidden');
+    const [tasksId, setTasksId] = useState('');
+    const [boardClass, setBoardClass] = useState('');
     const mainContent = useRef();
     const profileSidenav = useRef();
     const popup = useRef();
 
 
-    const openTask =() => {
-        window.location = '/board-route';
+    const backToMainRoute = () => {
+        setTasksClass('hidden');
+        setBoardClass('');
+    }
+
+    const openTask =(event) => {
+        console.log(event.target.id);
+        //window.location = '/board-route';
+        setTasksId(event.target.id);
+        setTasksClass('');
+        setBoardClass('hidden');
     }
 
     const openPopUp = () => {
@@ -71,7 +83,7 @@ export default function MainRoute() {
         <Header openSidenav={openSidenav} btnClass={''} startBtnClass={'hidden'}/>
         <main className='main-route-page' >
             <div className='wrapper' >
-                <section className='main-route-content' >
+                <section className={`main-route-content ${boardClass}`} >
                     <button className='app_button dark-button' onClick={BoardCreationHandler}>
                         <span className='add-icon'></span>
                         New board
@@ -80,6 +92,7 @@ export default function MainRoute() {
                         <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} openTask={openTask}/>
                     </div>
                 </section>
+                <BoardRoute tasksClass={tasksClass} tasksId={tasksId} backToMainRoute={backToMainRoute}/>
                 <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deletionHandler}/>
                 <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={openPopUp}/>
             </div>
