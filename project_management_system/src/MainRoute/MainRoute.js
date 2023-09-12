@@ -12,10 +12,15 @@ export default function MainRoute() {
     const [board, setBoard] = useState(tasks);
     const [tasksClass, setTasksClass] = useState('hidden');
     const [tasksId, setTasksId] = useState('');
+    const [boardId, setBoardId] = useState('');
     const [boardClass, setBoardClass] = useState('');
+    const [taskPreviewTitle, setTaskPreviewTitle] = useState('');
+    const [taskPreviewInput, setTaskPreviewInput] = useState('hidden');
+
     const mainContent = useRef();
     const profileSidenav = useRef();
     const popup = useRef();
+ 
 
 
     const backToMainRoute = () => {
@@ -25,14 +30,15 @@ export default function MainRoute() {
 
     const openTask =(event) => {
         console.log(event.target.id);
-        //window.location = '/board-route';
         setTasksId(event.target.id);
         setTasksClass('');
         setBoardClass('hidden');
     }
 
-    const openPopUp = () => {
+    const openPopUp = (event) => {
         popup.current.classList.add('active');
+        console.log(event.target.id);
+        setBoardId(event.target.id);
     }
 
     const closePopUp = () => {
@@ -48,7 +54,7 @@ export default function MainRoute() {
     const openSidenav = (e) => {
         e.preventDefault();
         profileSidenav.current.style.width = "260px";
-        mainContent.current.style.width = "70%";
+        mainContent.current.style.width = "65%";
     }
 
     const BoardCreationHandler = () => {
@@ -58,24 +64,26 @@ export default function MainRoute() {
     }
 
     const deleteBoardHandler = (id) => {
+        closePopUp();
         const newBoard = board.filter(task => task.id !== id);
         setBoard(newBoard);
     }
 
-    const deletionHandler = () => {
-        console.log('delete');
-    }
-
     const editBoardTitleHandler = (event) => {
         event.preventDefault();
+        setTaskPreviewInput('');
+        setTaskPreviewTitle('hidden');
+        /*
         let title = event.target.value;
         const newBoard = board.map(task => {
             if (task.id === event.target.id) {
                 task.title = title;
             }
             return task;
-        });
-        setBoard(newBoard);
+        });*/
+        //setBoard(newBoard);
+        //setTaskPreviewInput('hidden');
+        //setTaskPreviewTitle('');
     }
 
     return (
@@ -89,11 +97,11 @@ export default function MainRoute() {
                         New board
                     </button>
                     <div className='boards-wrapper' ref={mainContent}>
-                        <TasksList data={board} handleDeleteBoard={deleteBoardHandler} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} openTask={openTask}/>
+                        <TasksList data={board} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} openTask={openTask} taskPreviewInput={taskPreviewInput} taskPreviewTitle={taskPreviewTitle}/>
                     </div>
                 </section>
                 <BoardRoute tasksClass={tasksClass} tasksId={tasksId} backToMainRoute={backToMainRoute}/>
-                <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deletionHandler}/>
+                <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deleteBoardHandler} boardId={boardId}/>
                 <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={openPopUp}/>
             </div>
         </main>

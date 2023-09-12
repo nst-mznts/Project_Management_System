@@ -1,10 +1,11 @@
 import './BoardRoute.scss';
+import Column from '../Column/Column';
 
 export default function BoardRoute(props) {
 
     return (
         <>
-            <section className={`main-route-content ${props.tasksClass}`} >
+            <section className={`main-route-content ${props.tasksClass}`}>
                 <div className='route-button-wrapper'>
                     <button className='app_button dark-button' onClick={props.backToMainRoute}>
                         <span className='back-icon'></span>
@@ -15,6 +16,11 @@ export default function BoardRoute(props) {
                         <span className='add-column-icon'></span>
                         <span className='dark-button-title'>Add column</span>
                     </button>
+                </div>
+                <div className='route-tasks-wrapper'>
+                    <Column />
+                    <Column />
+                    <Column />
                 </div>
             </section>
         </>

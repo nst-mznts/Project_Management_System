@@ -1,0 +1,24 @@
+@import '../constants.scss';
+@import '../mixins.scss';
+@import '../placeholders.scss';
+
+
+.column {
+    @include flex(column);
+    row-gap: 10px;
+}
+
+.task-column {
+    width: 250px;
+    @include flex(row);
+    align-items: center;
+    justify-content: space-between;
+    @extend %shadow;
+    background-color: $color-light;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    @include media-mobile {
+        width: 300px;
+    }
+}

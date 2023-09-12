@@ -12,15 +12,26 @@
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+    @include media-mobile {
+        width: 300px;
+    }
 }
 
 .tasks-title {
+    width: 200px;
     border: none;
     padding: 10px;
     background-color: $color-light;
     color: $color-dark;
     @include font(normal, 400, 1.8rem);
     outline: none;  
+}
+
+.tasks_button-wrapper {
+    width: 100px;
+    @include flex(row);
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tasks_button {
@@ -52,6 +63,11 @@
 .tasks_button-icon {
     z-index: 2;
     position: relative;
+}
+
+.edit-icon {
+    @include icon(100%, 100%);
+    background-image: url('edit-icon.svg');
 }
 
 .delete-icon {

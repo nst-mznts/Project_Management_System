@@ -22,3 +22,11 @@
 .hidden {
     display: none;
 }
+
+.route-tasks-wrapper {
+    padding: 40px 0;
+    width: 100%;
+    @include flex(row);
+    align-items: center;
+    justify-content: space-between;
+}
