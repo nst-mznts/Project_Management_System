@@ -1,12 +1,12 @@
 import './Column.scss';
 
-export default function Column() {
+export default function Column(props) {
 
     return (
         <section className='column'>
             <div className='task-column'>
                 <p >New task</p>
-                <button className='tasks_button'>
+                <button className='tasks_button' onClick={props.editTitle}>
                     <span className='tasks_button-icon edit-icon' ></span>
                 </button>
             </div>

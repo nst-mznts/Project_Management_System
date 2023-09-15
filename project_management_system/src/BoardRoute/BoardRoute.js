@@ -18,9 +18,9 @@ export default function BoardRoute(props) {
                     </button>
                 </div>
                 <div className='route-tasks-wrapper'>
-                    <Column />
-                    <Column />
-                    <Column />
+                    <Column editTitle={props.editTitle}/>
+                    <Column editTitle={props.editTitle}/>
+                    <Column editTitle={props.editTitle}/>
                 </div>
             </section>
         </>

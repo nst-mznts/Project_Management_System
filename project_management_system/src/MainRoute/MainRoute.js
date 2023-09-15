@@ -2,26 +2,70 @@ import './MainRoute.scss';
 import Header from '../Header/Header';
 import ProfileSidePanel from '../ProfileSidePanel/ProfileSidePanel';
 import TasksList from '../TasksList/TasksList';
-import ModalWindow from '../ModalWindow/ModalWindow';
 import BoardRoute from '../BoardRoute/BoardRoute';
 import tasks from '../data/tasksList';
+import { ModalContext } from "../ModalWindow/ModalContext";
 import { nanoid } from 'nanoid';
-import { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 
 export default function MainRoute() {
     const [board, setBoard] = useState(tasks);
     const [tasksClass, setTasksClass] = useState('hidden');
     const [tasksId, setTasksId] = useState('');
-    const [boardId, setBoardId] = useState('');
     const [boardClass, setBoardClass] = useState('');
-    const [taskPreviewTitle, setTaskPreviewTitle] = useState('');
-    const [taskPreviewInput, setTaskPreviewInput] = useState('hidden');
 
     const mainContent = useRef();
     const profileSidenav = useRef();
-    const popup = useRef();
- 
+    const editInput = useRef();
 
+    
+ 
+    const { openModal, closeModal } = useContext(ModalContext);
+
+    const handleClickRemoveButton = (event) => {
+        openModal({
+            title: 'Confirm the action',
+            children: <>
+            <p className='popup-text'>Do you really want to delete the board?</p>
+            <div className='popup-buttons-wrapper'>
+                <button className='app_button dark-button popup-btn' onClick={() => deleteBoardHandler(event.target.id)}>Delete</button>
+                <button onClick={closeModal} className='app_button light-button'>Cancel</button>
+            </div>
+            </>
+        });
+    }
+
+    const handleClickRemoveProfileButton = () => {
+        openModal({
+            title: 'Confirm the action',
+            children: <>
+            <p className='popup-text'>Do you really want to delete your profile?</p>
+            <div className='popup-buttons-wrapper'>
+                <button className='app_button dark-button popup-btn' onClick={backToMainPage}>Delete</button>
+                <button onClick={closeModal} className='app_button light-button'>Cancel</button>
+            </div>
+            </>
+        });
+    }
+
+    const handleClickEditButton = (event) => {
+        openModal({
+            title: 'Edit title',
+            children: <>
+            <input ref={editInput} className='popup-input' placeholder='type in a new title'/>
+            <div className='popup-buttons-wrapper'>
+                <button className='app_button dark-button popup-btn' onClick={() => editBoardTitleHandler(event.target.id)}>Save</button>
+                <button onClick={closeModal} className='app_button light-button'>Cancel</button>
+            </div>
+            </>
+            
+        });
+    }
+
+    const backToMainPage = () => {
+        closeModal();
+        window.location='/'
+    }
 
     const backToMainRoute = () => {
         setTasksClass('hidden');
@@ -33,16 +77,6 @@ export default function MainRoute() {
         setTasksId(event.target.id);
         setTasksClass('');
         setBoardClass('hidden');
-    }
-
-    const openPopUp = (event) => {
-        popup.current.classList.add('active');
-        console.log(event.target.id);
-        setBoardId(event.target.id);
-    }
-
-    const closePopUp = () => {
-        popup.current.classList.remove('active');
     }
 
     const closeSidenav = (e) => {
@@ -64,26 +98,21 @@ export default function MainRoute() {
     }
 
     const deleteBoardHandler = (id) => {
-        closePopUp();
         const newBoard = board.filter(task => task.id !== id);
         setBoard(newBoard);
+        closeModal();
     }
 
-    const editBoardTitleHandler = (event) => {
-        event.preventDefault();
-        setTaskPreviewInput('');
-        setTaskPreviewTitle('hidden');
-        /*
-        let title = event.target.value;
+    const editBoardTitleHandler = (titleId) => {
+        let title = editInput.current.value;
         const newBoard = board.map(task => {
-            if (task.id === event.target.id) {
+            if (task.id === titleId) {
                 task.title = title;
             }
             return task;
-        });*/
-        //setBoard(newBoard);
-        //setTaskPreviewInput('hidden');
-        //setTaskPreviewTitle('');
+        });
+        setBoard(newBoard);
+        closeModal();
     }
 
     return (
@@ -97,12 +126,11 @@ export default function MainRoute() {
                         New board
                     </button>
                     <div className='boards-wrapper' ref={mainContent}>
-                        <TasksList data={board} handleEditTitle={editBoardTitleHandler} openPopUp={openPopUp} openTask={openTask} taskPreviewInput={taskPreviewInput} taskPreviewTitle={taskPreviewTitle}/>
+                        <TasksList data={board} editBoardTitle={handleClickEditButton} handleEditTitle={editBoardTitleHandler} deleteBoard={handleClickRemoveButton} openTask={openTask} />
                     </div>
                 </section>
-                <BoardRoute tasksClass={tasksClass} tasksId={tasksId} backToMainRoute={backToMainRoute}/>
-                <ModalWindow  popup={popup} closePopUp={closePopUp} delete={deleteBoardHandler} boardId={boardId}/>
-                <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={openPopUp}/>
+                <BoardRoute tasksClass={tasksClass} tasksId={tasksId} backToMainRoute={backToMainRoute} editTitle={handleClickEditButton}/>
+                <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={handleClickRemoveProfileButton}/>
             </div>
         </main>
         </>
