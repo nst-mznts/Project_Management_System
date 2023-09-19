@@ -1,5 +1,5 @@
 import './BoardRoute.scss';
-import Column from '../Column/Column';
+//import Column from '../Column/Column';
 
 export default function BoardRoute(props) {
 
@@ -11,16 +11,15 @@ export default function BoardRoute(props) {
                         <span className='back-icon'></span>
                         <span className='dark-button-title'>Back</span>
                     </button>
-                    <h3>New board {props.tasksId}</h3>
+                    <h3>{props.data.title}</h3>
                     <button className='app_button dark-button'>
                         <span className='add-column-icon'></span>
                         <span className='dark-button-title'>Add column</span>
                     </button>
                 </div>
                 <div className='route-tasks-wrapper'>
-                    <Column editTitle={props.editTitle}/>
-                    <Column editTitle={props.editTitle}/>
-                    <Column editTitle={props.editTitle}/>
+                    {/*{props.tasks.map(task => <Column title={task.title} editTitle={props.editTitle}/>)}*/}
+                    
                 </div>
             </section>
         </>

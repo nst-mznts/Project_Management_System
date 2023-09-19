@@ -6,6 +6,26 @@ header {
     background-color: $color-primary;
 }
 
+.logo-wrapper {
+    @include flex(row);
+    align-items: center;
+    column-gap: 10px;
+}
+
+.logo-icon {
+    @include icon(40px, 40px);
+    background-image: url('logo-star.svg');
+}
+
+.logo {
+    font-family: 'Shadows Into Light', cursive;
+    color: $color-dark;
+    margin: 0;
+    @include media-tablet {
+        display: none;
+    };
+}
+
 .login-icon {
     @include icon(20px, 20px);
     background-image: url('log_in_icon.svg');

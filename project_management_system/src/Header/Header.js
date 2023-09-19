@@ -1,5 +1,4 @@
 import './Header.scss';
-import Logo from '../Logo/Logo';
 import Dropdown from '../Dropdown/Dropdown';
 import { NavLink } from "react-router-dom";
 import { useRef, useState } from 'react';
@@ -24,7 +23,10 @@ export default function Header(props) {
         <header>
             <div className='wrapper'>
                 <nav className='header-navigation'>
-                    <Logo />
+                    <div className='logo-wrapper'>
+                        <span className='logo-icon'></span>
+                        <h1 className='logo'>PMApp</h1>
+                    </div>
                     <div className={`header_button-wrapper ${props.startBtnClass}`}>
                         <Dropdown clickHandler={clickHandler} lang={lang} dropdown={dropdown} languageHandler={languageHandler}/>
                         <NavLink className='app_button dark-button' to='/login'>

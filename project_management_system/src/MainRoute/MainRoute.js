@@ -2,7 +2,8 @@ import './MainRoute.scss';
 import Header from '../Header/Header';
 import ProfileSidePanel from '../ProfileSidePanel/ProfileSidePanel';
 import TasksList from '../TasksList/TasksList';
-import BoardRoute from '../BoardRoute/BoardRoute';
+//import BoardRoute from '../BoardRoute/BoardRoute';
+import Column from '../Column/Column';
 import tasks from '../data/tasksList';
 import { ModalContext } from "../ModalWindow/ModalContext";
 import { nanoid } from 'nanoid';
@@ -11,8 +12,10 @@ import React, { useRef, useState, useContext } from 'react';
 export default function MainRoute() {
     const [board, setBoard] = useState(tasks);
     const [tasksClass, setTasksClass] = useState('hidden');
-    const [tasksId, setTasksId] = useState('');
+    //const [tasksId, setTasksId] = useState('');
     const [boardClass, setBoardClass] = useState('');
+    const [currentTask, setCurrentTask] = useState([]);
+    const [currentTaskData, setCurrentTaskData] = useState([]);
 
     const mainContent = useRef();
     const profileSidenav = useRef();
@@ -73,8 +76,13 @@ export default function MainRoute() {
     }
 
     const openTask =(event) => {
-        console.log(event.target.id);
-        setTasksId(event.target.id);
+        //сделать проверку, чтобы переключение на другую страницу 
+        //было только на нажатию на карточку (не кнопки удалить и редактировать)
+        event.stopPropagation();
+        const array = board.filter(task => task.id === event.target.id);
+        setCurrentTask(array[0]);
+        setCurrentTaskData(array[0].tasks)
+        //setTasksId(event.target.id);
         setTasksClass('');
         setBoardClass('hidden');
     }
@@ -129,7 +137,23 @@ export default function MainRoute() {
                         <TasksList data={board} editBoardTitle={handleClickEditButton} handleEditTitle={editBoardTitleHandler} deleteBoard={handleClickRemoveButton} openTask={openTask} />
                     </div>
                 </section>
-                <BoardRoute tasksClass={tasksClass} tasksId={tasksId} backToMainRoute={backToMainRoute} editTitle={handleClickEditButton}/>
+
+                <section className={`main-route-content ${tasksClass}`}>
+                    <div className='route-button-wrapper'>
+                        <button className='app_button dark-button' onClick={backToMainRoute}>
+                            <span className='back-icon'></span>
+                            <span className='dark-button-title'>Back</span>
+                        </button>
+                        <h3>{currentTask.title}</h3>
+                        <button className='app_button dark-button'>
+                            <span className='add-column-icon'></span>
+                            <span className='dark-button-title'>Add column</span>
+                        </button>
+                    </div>
+                    <div className='route-tasks-wrapper'>
+                        {currentTaskData.map(item=><Column key={nanoid()} title={item.title} tasks={item.task} editTitle={handleClickEditButton}/>)}
+                    </div>
+                </section>
                 <ProfileSidePanel closeSidenav={closeSidenav} profileSidenav={profileSidenav} openPopUp={handleClickRemoveProfileButton}/>
             </div>
         </main>

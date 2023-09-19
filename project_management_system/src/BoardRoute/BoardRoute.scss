@@ -27,7 +27,12 @@
     padding: 40px 0;
     width: 100%;
     @include flex(row);
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }

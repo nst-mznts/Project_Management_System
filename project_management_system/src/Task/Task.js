@@ -1,11 +1,11 @@
-import './TaskPreview.scss';
+import './Task.scss';
 
-export default function TaskPreview(props) {
+export default function Task(props) {
 
     return (
         <>
-            <section className='tasks-list-wrapper' id={props.id} onClick={props.openTask}>
-                <p className={`tasks-title ${props.taskPreviewTitle}`} id={props.id}>{props.title}</p>
+            <div className='task'>
+                <p>{props.task}</p>
                 <div className='tasks_button-wrapper'>
                     <button className='tasks_button' id={props.id} onClick={props.editBoardTitle}>
                         <span className='tasks_button-icon edit-icon' id={props.id}></span>
@@ -14,7 +14,7 @@ export default function TaskPreview(props) {
                         <span className='tasks_button-icon delete-icon' id={props.id}></span>
                     </button>
                 </div>
-            </section>
+            </div>
         </>
     )
 }

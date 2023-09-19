@@ -1,3 +1,4 @@
+import Task from '../Task/Task';
 import './Column.scss';
 
 export default function Column(props) {
@@ -5,10 +6,15 @@ export default function Column(props) {
     return (
         <section className='column'>
             <div className='task-column'>
-                <p >New task</p>
-                <button className='tasks_button' onClick={props.editTitle}>
-                    <span className='tasks_button-icon edit-icon' ></span>
-                </button>
+                <p >{props.title}</p>
+                <div className='tasks_button-wrapper'>
+                    <button className='tasks_button' id={props.id} onClick={props.editBoardTitle}>
+                        <span className='tasks_button-icon edit-icon' id={props.id}></span>
+                    </button>
+                    <button className='tasks_button' id={props.id} onClick={props.deleteBoard}>
+                        <span className='tasks_button-icon delete-icon' id={props.id}></span>
+                    </button>
+                </div>
             </div>
 
             <button className='app_button dark-button'>
@@ -16,8 +22,8 @@ export default function Column(props) {
                 Add task
             </button>
             
-            <div className='task-column'>
-            
+            <div className='task-list'>
+                {props.tasks.map(item=><Task task={item} />)}
             </div>
         </section>
     )
